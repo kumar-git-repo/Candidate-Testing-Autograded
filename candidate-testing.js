@@ -26,9 +26,10 @@ function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
   //const input = require('readline-sync');
   for (i=0; i<questions.length; i++) {
-    candidateAnswers[i] = input.question(questions[i])
+    
+    candidateAnswers.push(input.question(questions[i]))
   }
-
+ 
 }
 
 function gradeQuiz(candidateAnswers) {
@@ -40,7 +41,7 @@ function gradeQuiz(candidateAnswers) {
    console.log("You answer is not correct")
 }*/
 for (x=0; x<candidateAnswers.length; x++){
-  console.log(`correct answer is ${correctAnswers[x]} - candidate answer is ${candidateAnswers[x]}`)
+  console.log(`correct answer is ${correctAnswers[x]} - Your answer is ${candidateAnswers[x]}`)
 }
 
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
