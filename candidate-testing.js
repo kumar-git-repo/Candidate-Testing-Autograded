@@ -19,7 +19,7 @@ let candidateAnswers =[];
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
   //const input = require('readline-sync');
-  candidateName = input.question("What is your name: ")
+  candidateName = input.question("What is your name: ");
 }
 
 function askQuestion() {
@@ -41,7 +41,7 @@ function gradeQuiz(candidateAnswers) {
    console.log("You answer is not correct")
 }*/
 for (x=0; x<candidateAnswers.length; x++){
-  console.log(`correct answer is ${correctAnswers[x]} - Your answer is ${candidateAnswers[x]}`)
+  console.log(`correct answer for ${questions[x]} is ${correctAnswers[x]} - Your answer is ${candidateAnswers[x]}`)
 }
 
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
@@ -53,7 +53,8 @@ for (x=0; x<candidateAnswers.length; x++){
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log("Hi candidateName");
+  console.log(`Hi ${candidateName}`)
+   //console.log(`Hi candidateName");
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
