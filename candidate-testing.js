@@ -28,6 +28,7 @@ function askQuestion() {
   for (i=0; i<questions.length; i++) {
     
     candidateAnswers.push(input.question(questions[i]))
+    //candidateAnswers[i] = input.question(questions[i])
   }
  
 }
@@ -41,20 +42,39 @@ function gradeQuiz(candidateAnswers) {
    console.log("You answer is not correct")
 }*/
 for (x=0; x<candidateAnswers.length; x++){
-  console.log(`correct answer for ${questions[x]} is ${correctAnswers[x]} - Your answer is ${candidateAnswers[x]}`)
+  console.log(`Answer for ${questions[x]} is "${correctAnswers[x]}" - Your answer is "${candidateAnswers[x]}"`)
 }
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade=0;  //TODO 3.2 use this variable to calculate the candidates score.
+  let passStatus=''
+  //let numberOfCorrectAnswers = 0
+  let candidateCorrectAnswers=[]
+  
+for (i=0; i<candidateAnswers.length; i++){
+  if (candidateAnswers[i].toUpperCase()  === correctAnswers[i].toUpperCase()){
+    //numberOfCorrectAnswers = numberOfCorrectAnswers + 1;
+    candidateCorrectAnswers.push(candidateAnswers[i])
+  }
+}
+   grade = candidateCorrectAnswers.length/correctAnswers.length*100; 
+//grade = numberOfCorrectAnswers/correctAnswers.length*100;
+    if (grade >= 80){
+      passStatus = 'Pass'
+    } else {
+      passStatus = 'Fail'
+    }
+
+console.log(`Hi ${candidateName}, your grade = ${grade}% - ${passStatus}`)
 
 
   return grade;
 }
 
+
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-  console.log(`Hi ${candidateName}`)
-   //console.log(`Hi candidateName");
+  console.log(`Hi ${candidateName}`);
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
