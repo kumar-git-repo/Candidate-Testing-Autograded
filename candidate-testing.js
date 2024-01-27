@@ -36,35 +36,38 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-/*if (candidateAnswer === correctAnswer) {
+
+  /*if (candidateAnswer === correctAnswer) {
   console.log("Hi " + candidateName +" Your answer is correct. Great Job.")
 } else{
    console.log("You answer is not correct")
 }*/
+
 for (x=0; x<candidateAnswers.length; x++){
   console.log(`Answer for ${questions[x]} is "${correctAnswers[x]}" - Your answer is "${candidateAnswers[x]}"`)
 }
 
-  let grade=0;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
   let passStatus=''
-  //let numberOfCorrectAnswers = 0
-  let candidateCorrectAnswers=[]
+  let numberOfCorrectAnswers = 0
+  //let candidateCorrectAnswers=[]
   
 for (i=0; i<candidateAnswers.length; i++){
   if (candidateAnswers[i].toUpperCase()  === correctAnswers[i].toUpperCase()){
-    //numberOfCorrectAnswers = numberOfCorrectAnswers + 1;
-    candidateCorrectAnswers.push(candidateAnswers[i])
+    numberOfCorrectAnswers = numberOfCorrectAnswers + 1;
+    //candidateCorrectAnswers.push(candidateAnswers[i])
   }
 }
-   grade = candidateCorrectAnswers.length/correctAnswers.length*100; 
-//grade = numberOfCorrectAnswers/correctAnswers.length*100;
+   //grade = candidateCorrectAnswers.length/correctAnswers.length*100; 
+grade = numberOfCorrectAnswers/correctAnswers.length*100;
+
     if (grade >= 80){
       passStatus = 'Pass'
     } else {
       passStatus = 'Fail'
     }
 
-console.log(`Hi ${candidateName}, your grade = ${grade}% - ${passStatus}`)
+console.log(`Hi ${candidateName}, Your score = ${grade}%; Your Grade - ${passStatus}`)
 
 
   return grade;
